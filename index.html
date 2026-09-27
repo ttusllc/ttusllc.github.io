@@ -13,93 +13,419 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TT US LLC</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Designed specifically for travel professionals, the system brings together airfare content from multiple suppliers, offering competitive fares, additional services, and 24/7 professional support." />
+  <meta name="theme-color" content="#071a33" />
+  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" />
+  <link rel="preload" as="image" href="assets/bg-hero.jpg" media="(min-width: 640px)" />
+  <link rel="preload" as="image" href="assets/bg-hero-sm.jpg" imagesrcset="assets/bg-hero-sm.jpg 1x, assets/bg-hero.jpg 2x" media="(max-width: 639.98px)" />
+  <link rel="stylesheet" href="home.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <div class="background"></div>
-  <header>
-    <div style="display:flex;align-items:center;gap:12px"><img src="assets/logo.jpg" alt="TT US Logo" class="logo" onerror="this.onerror=null;this.src='assets/logo.svg';" /><h1 style="margin:0">TT US LLC</h1></div>
-    <div style="display:flex;align-items:center;gap:10px">
-      <a href="index-es.html" class="button secondary">🇪🇸 Español</a>
-      <a href="https://turne.us/" target="_blank" class="button large">Go to Booking Portal</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- Icon sprite: every icon and the logo bars are defined once here and reused with <use href="#…">. -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <!-- The two parallelogram bars of the TT US logo. Colours come from CSS: --bars-a (upper bar) and --bars-b (lower bar). -->
+    <symbol id="brand-bars" viewBox="0 0 292 304">
+      <path d="M0 120 211 0v93L0 214Z" style="fill: var(--bars-a, currentColor)"/>
+      <path d="M81 210 292 89v94L81 304Z" style="fill: var(--bars-b, currentColor)"/>
+    </symbol>
+    <symbol id="plane-solid" viewBox="0 0 32 32"><path d="M30 16c0-1.3-1.4-2-3-2h-7.4L12.3 3.2h-3l3.6 10.8H6.6L3.9 10.3H1.6l1.8 5.7-1.8 5.7h2.3l2.7-3.7h6.3L9.3 28.8h3L19.6 18H27c1.6 0 3-.7 3-2z"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21.5 2.5 10.9 13.1"/><path d="m21.5 2.5-6.7 19-3.9-8.4-8.4-3.9Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M21.5 16.6v2.9a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.6 3.8 2 2 0 0 1 3.6 1.6h2.9a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.5 9.4a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.9 2.2Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2.5 21.5Z"/><path d="M9 10.5h.01M12 10.5h.01M15 10.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5a14 14 0 0 0 0 19 14 14 0 0 0 0-19"/><path d="M2.5 12h19"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+    <symbol id="i-banknote" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+    <symbol id="i-messages" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+    <symbol id="flag-es" viewBox="0 0 24 16"><rect width="24" height="16" rx="2.5" fill="#AA151B"/><rect y="4" width="24" height="8" fill="#F1BF00"/><rect x="5" y="6" width="3.2" height="4" rx=".8" fill="#AA151B" opacity=".55"/></symbol>
+    <symbol id="flag-us" viewBox="0 0 24 16"><clipPath id="flag-us-clip"><rect width="24" height="16" rx="2.5"/></clipPath><g clip-path="url(#flag-us-clip)"><rect width="24" height="16" fill="#B22234"/><path d="M0 1.85h24M0 4.3h24M0 6.77h24M0 9.23h24M0 11.7h24M0 14.15h24" stroke="#fff" stroke-width="1.23"/><rect width="10.4" height="8.6" fill="#3C3B6E"/></g></symbol>
+    <symbol id="flag-gb" viewBox="0 0 24 16"><clipPath id="flag-gb-clip"><rect width="24" height="16" rx="2.5"/></clipPath><g clip-path="url(#flag-gb-clip)"><rect width="24" height="16" fill="#012169"/><path d="M0 0l24 16M24 0 0 16" stroke="#fff" stroke-width="3.2"/><path d="M0 0l24 16M24 0 0 16" stroke="#C8102E" stroke-width="1.1"/><path d="M12 0v16M0 8h24" stroke="#fff" stroke-width="5"/><path d="M12 0v16M0 8h24" stroke="#C8102E" stroke-width="3"/></g></symbol>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="#top">
+        <img src="assets/logo.jpg" alt="TT US Logo" class="logo" width="44" height="44" onerror="this.onerror=null;this.src='assets/logo.svg';" />
+      </a>
+
+      <nav class="site-nav" aria-label="Sections" data-i18n-aria="nav">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="#about" data-i18n="nav-about">About Us</a></li>
+          <li><a class="site-nav__link" href="#what-we-do" data-i18n="nav-what">What We Do</a></li>
+          <li><a class="site-nav__link" href="#benefits" data-i18n="nav-benefits">Key Benefits</a></li>
+          <li><a class="site-nav__link" href="#contact" data-i18n="nav-contact">Contact Form</a></li>
+        </ul>
+      </nav>
+
+      <!-- The language switch comes last, so on phones it stays pinned to the right edge
+           when the portal button appears after scrolling. -->
+      <div class="site-header__actions">
+        <a href="https://turne.us/" target="_blank" rel="noopener" class="btn btn--primary btn--sm site-header__cta"><span data-i18n="cta-header">Go to Booking Portal</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></a>
+        <a href="index-es.html" class="btn btn--ghost btn--sm btn--lang" hreflang="es" data-lang-switch><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-es"/></svg><span class="btn__label" lang="es" data-lang-label>Español</span></a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="intro">
-      <div class="intro-text">
-        <h2>About Us</h2>
-        <p>TT US LLC has been based in New York, United States since 2022. We initially specialized in air ticketing for US and EU shipowners and crewing companies. In 2024, we launched our online booking platform.</p>
-        <p>Designed specifically for travel professionals, the system brings together airfare content from multiple suppliers, offering competitive fares, additional services, and 24/7 professional support.</p>
-        <p>My name is Bogatyreva Olga, and I’m the CEO of TT US. With over 10 years of experience in corporate travel (Turne-Trans, Russia), I relocated to the U.S. to establish TT US internationally — helping agencies and consolidators access reliable ticketing tools in growing markets.</p>
-        <p><strong>Reach out</strong> if you're interested in getting onboard and exploring live access to the best airfares!</p>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Decoration: frosted logo bars with a dotted flight path taking off between them -->
+      <div class="hero__art" aria-hidden="true">
+        <span class="hero__bar hero__bar--1"></span>
+        <span class="hero__bar hero__bar--2"></span>
+        <svg class="hero__route" viewBox="-50 -110 480 440" focusable="false">
+          <defs>
+            <linearGradient id="hero-bar-edge" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#FFFFFF" stop-opacity=".05"/>
+              <stop offset=".6" stop-color="#FFFFFF" stop-opacity=".38"/>
+              <stop offset="1" stop-color="#FFFFFF" stop-opacity=".7"/>
+            </linearGradient>
+          </defs>
+          <use href="#brand-bars" class="hero__bar-edges" width="292" height="304"/>
+          <path class="hero__route-path" d="M-22 248 L250 92 C300 63 352 22 392 -52"/>
+          <circle class="hero__route-origin" cx="-22" cy="248" r="6"/>
+          <use href="#plane-solid" class="hero__route-plane" x="-15" y="-15" width="30" height="30" transform="translate(398 -64) rotate(-58)"/>
+        </svg>
       </div>
-      <div class="intro-card">
-        <img src="https://i.imgur.com/gqieDP4.jpeg" alt="Bogatyreva Olga Photo" class="business-card-img" />
-        <div class="contact-me">
-          <strong>Contact me</strong><br>
-          Email: <a href="mailto:admin@turne.us">admin@turne.us</a><br>
-          Phone: <a href="tel:+13474088979">+1 347 408 8979</a><br>
-          WhatsApp: <a href="https://wa.me/13474088979" target="_blank">Message on WhatsApp</a><br>
-          LinkedIn: <a href="https://www.linkedin.com/in/olga-bogatyreva-a98378a3/" target="_blank">View Profile</a><br>
+
+      <div class="container hero__inner">
+        <h1 id="hero-title" class="hero__title">TT US <span class="hero__title-accent">LLC</span></h1>
+        <p class="hero__lead" data-i18n="hero-lead">Designed specifically for travel professionals, the system brings together airfare content from multiple suppliers, offering competitive fares, additional services, and 24/7 professional support.</p>
+        <div class="hero__cta">
+          <a href="https://turne.us/" target="_blank" rel="noopener" class="btn btn--light btn--lg"><span data-i18n="cta-hero">Go to Booking Portal</span><span class="btn__orb" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-arrow-up-right"/></svg></span></a>
+          <a href="index-es.html" class="btn btn--glass btn--lg" hreflang="es" data-lang-switch><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-es"/></svg><span lang="es" data-lang-label>Español</span></a>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>What We Do</h2>
-      <p>Our system was developed specifically for travel agents and specialists to simplify the flight booking process.
-      Obtaining IATA accreditation can be difficult — so we’ve created an intuitive online platform that gives you access to global airfare content without the complexity.
-      The portal offers live fares from top airlines, additional services, and 24/7 professional assistance.</p>
+    <!-- ============ ABOUT US ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__text">
+          <svg class="title-mark" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+          <h2 id="about-title" class="title" data-i18n="about-title">About Us</h2>
+          <p class="lead" data-i18n="about-lead">TT US LLC has been based in New York, United States since 2022. We initially specialized in air ticketing for US and EU shipowners and crewing companies. In 2024, we launched our online booking platform.</p>
+          <p class="about__ceo" data-i18n="about-ceo">My name is Bogatyreva Olga, and I’m the CEO of TT US. With over 10 years of experience in corporate travel (<span class="nowrap">Turne-Trans</span>, Russia), I relocated to the U.S. to establish TT US <span class="nowrap">internationally —</span> helping agencies and consolidators access reliable ticketing tools in growing markets.</p>
+        </div>
+
+        <div class="about__aside">
+        <div class="contact-card">
+          <div class="contact-card__head">
+            <h3 class="contact-card__title" data-i18n="contact-me">Contact me</h3>
+            <span class="contact-card__route" aria-hidden="true">
+              <i class="contact-card__dot"></i><i class="contact-card__dash"></i>
+              <svg class="contact-card__plane" focusable="false"><use href="#plane-solid"/></svg>
+              <i class="contact-card__dash"></i><i class="contact-card__dot contact-card__dot--end"></i>
+            </span>
+          </div>
+          <dl class="contact-list">
+            <div class="contact-item">
+              <dt class="contact-item__label"><span class="contact-item__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-mail"/></svg></span>Email:</dt>
+              <dd class="contact-item__value"><a href="mailto:admin@turne.us">admin@turne.us</a><svg class="icon contact-item__go" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></dd>
+            </div>
+            <div class="contact-item">
+              <dt class="contact-item__label"><span class="contact-item__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-phone"/></svg></span><span data-i18n="lbl-phone">Phone:</span></dt>
+              <dd class="contact-item__value"><a href="tel:+13474088979">+1 347 408 8979</a><svg class="icon contact-item__go" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></dd>
+            </div>
+            <div class="contact-item">
+              <dt class="contact-item__label"><span class="contact-item__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-chat"/></svg></span>WhatsApp:</dt>
+              <dd class="contact-item__value"><a href="https://wa.me/13474088979" target="_blank" rel="noopener" data-i18n="whatsapp-link">Message on WhatsApp</a><svg class="icon contact-item__go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></dd>
+            </div>
+            <div class="contact-item">
+              <dt class="contact-item__label" id="contact-linkedin"><span class="contact-item__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-linkedin"/></svg></span>LinkedIn:</dt>
+              <dd class="contact-item__value"><a href="https://www.linkedin.com/in/olga-bogatyreva-a98378a3/" target="_blank" rel="noopener" aria-describedby="contact-linkedin" data-i18n="linkedin-link">View Profile</a><svg class="icon contact-item__go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></dd>
+            </div>
+          </dl>
+        </div>
+        <span class="about__badge" aria-hidden="true"><svg focusable="false"><use href="#brand-bars"/></svg></span>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Key Benefits</h2>
-      <ul>
-        <li>Centralized platform to manage all flight bookings</li>
-        <li>Access to competitive fares from multiple global suppliers</li>
-        <li>24/7 customer support, including ticket changes and refunds</li>
-        <li>We handle all airline communication on your behalf</li>
-        <li>Prepaid balance system for fast, independent ticket issuance</li>
-      </ul>
+    <!-- ============ WHAT WE DO + KEY BENEFITS (tinted band) ============ -->
+    <div class="band band--tint">
+      <section class="section what" id="what-we-do" aria-labelledby="what-title">
+        <div class="container">
+          <svg class="title-mark" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+          <h2 id="what-title" class="title" data-i18n="what-title">What We Do</h2>
+          <div class="what__grid">
+            <p class="what__statement" data-i18n="what-statement">Our system was developed specifically for travel agents and specialists to simplify the flight booking process.</p>
+            <p class="what__body" data-i18n="what-body">Obtaining IATA accreditation can be <span class="nowrap">difficult —</span> so we’ve created an intuitive online platform that gives you access to global airfare content without the complexity.
+            The portal offers live fares from top airlines, additional services, and 24/7 professional assistance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section benefits" id="benefits" aria-labelledby="benefits-title">
+        <div class="container">
+          <svg class="title-mark" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+          <h2 id="benefits-title" class="title" data-i18n="benefits-title">Key Benefits</h2>
+          <ul class="benefits__grid" role="list">
+            <li class="benefit benefit--lead">
+              <span class="benefit__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-dashboard"/></svg></span>
+              <p class="benefit__text" data-i18n="benefit-1">Centralized platform to manage all flight bookings</p>
+              <svg class="benefit__bars" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-globe"/></svg></span>
+              <p class="benefit__text" data-i18n="benefit-2">Access to competitive fares from multiple global suppliers</p>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-headset"/></svg></span>
+              <p class="benefit__text" data-i18n="benefit-3">24/7 customer support, including ticket changes and refunds</p>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-plane"/></svg></span>
+              <p class="benefit__text" data-i18n="benefit-4">We handle all airline communication on your behalf</p>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-wallet"/></svg></span>
+              <p class="benefit__text" data-i18n="benefit-5">Prepaid balance system for fast, independent ticket issuance</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ PAYMENTS & COMMISSIONS + SUPPORT & COMMUNICATION ============ -->
+    <div class="section pair">
+      <div class="container pair__grid">
+        <section class="feature" id="payments" aria-labelledby="payments-title">
+          <div class="feature__head">
+            <span class="feature__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-banknote"/></svg></span>
+            <h2 id="payments-title" class="feature__title" data-i18n="payments-title">Payments &amp; Commissions</h2>
+          </div>
+          <p class="feature__text" data-i18n="payments-text">We operate on a prepayment <span class="nowrap">basis —</span> clients top up their balance to issue tickets instantly.
+          We currently accept USD and EUR via bank transfer, Wise, or PayPal.
+          Additional payment options are coming soon to better serve your needs.</p>
+          <svg class="feature__bars" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+        </section>
+
+        <section class="feature" id="support" aria-labelledby="support-title">
+          <div class="feature__head">
+            <span class="feature__icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-messages"/></svg></span>
+            <h2 id="support-title" class="feature__title" data-i18n="support-title">Support &amp; Communication</h2>
+          </div>
+          <p class="feature__text" data-i18n="support-text">Our dedicated Help Desk is available 24/7.
+          All support is managed through the booking platform using structured forms, which helps us prioritize urgent requests and ensure quick resolution.
+          For complex cases, your personal account manager (KAM) will take direct responsibility for follow-up and resolution.</p>
+          <svg class="feature__bars" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============ CONTACT FORM (dark band) ============ -->
+    <section class="section contact on-dark" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__intro">
+          <svg class="title-mark" aria-hidden="true" focusable="false"><use href="#brand-bars"/></svg>
+          <h2 id="contact-title" class="title" data-i18n="contact-title">Contact Form</h2>
+          <p class="contact__lead" data-i18n="contact-lead"><strong>Reach out</strong> if you're interested in getting onboard and exploring live access to the best airfares!</p>
+          <p class="contact__more">
+            <a href="https://hihello.me/p/f804d793-476c-4889-b008-d1d6c7be5aa5" target="_blank" rel="noopener" class="btn btn--glass"><span data-i18n="more-contacts">More Contacts</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></a>
+          </p>
+        </div>
+
+        <form class="form-card" action="https://formspree.io/f/xldnoqka" method="POST">
+          <div class="field">
+            <label class="field__label" for="name" data-i18n="form-name">Your Name:</label>
+            <input class="field__input" type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="email" data-i18n="form-email">Your Email:</label>
+            <input class="field__input" type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="message" data-i18n="form-message">Message:</label>
+            <textarea class="field__input" id="message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="field--full form-card__actions">
+            <button type="submit" class="btn btn--primary btn--lg btn--block form-card__submit"><span data-i18n="form-send">Send</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg></button>
+          </div>
+        </form>
+      </div>
     </section>
 
-    <section>
-      <h2>Payments & Commissions</h2>
-      <p>We operate on a prepayment basis — clients top up their balance to issue tickets instantly.
-      We currently accept USD and EUR via bank transfer, Wise, or PayPal.
-      Additional payment options are coming soon to better serve your needs.</p>
-    </section>
-
-    <section>
-      <h2>Support & Communication</h2>
-      <p>Our dedicated Help Desk is available 24/7.
-      All support is managed through the booking platform using structured forms, which helps us prioritize urgent requests and ensure quick resolution.
-      For complex cases, your personal account manager (KAM) will take direct responsibility for follow-up and resolution.</p>
-    </section>
-
-    <section>
-      <h2>Contact Form</h2>
-      <form action="https://formspree.io/f/xldnoqka" method="POST">
-        <label for="name">Your Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">Your Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br>
-        <input type="submit" value="Send">
-      </form>
-      <p>
-        <a href="https://hihello.me/p/f804d793-476c-4889-b008-d1d6c7be5aa5" target="_blank" class="button large secondary">More Contacts</a>
-      </p>
+    <!-- ============ ACCREDITATION ============ -->
+    <section class="section accred" id="accreditation" aria-labelledby="accred-title">
+      <div class="container">
+        <div class="accred__head">
+          <svg class="accred__flag" aria-hidden="true" focusable="false"><use href="#flag-us"/></svg>
+          <h2 id="accred-title" class="title accred__title" data-i18n="accred-title">We are American, IATAN and ARC accredited</h2>
+          <p class="accred__code"><span data-i18n="accred-code">IATA/ ARC Numeric Code:</span> <strong class="accred__number">33-5 2965 0</strong></p>
+        </div>
+        <ul class="accred__grid" role="list">
+          <li class="accred-card">
+            <div class="accred-card__logo"><img src="assets/logo-iatan.jpg" alt="IATAN" width="120" height="116" loading="lazy" decoding="async" /></div>
+            <a class="accred-card__cert" href="assets/cert-iatan.jpg" target="_blank" rel="noopener">
+              <img src="assets/cert-iatan.jpg" alt="IATAN Certificate of Accreditation, TT US LLC" data-i18n-alt="alt-iatan" width="1100" height="850" loading="lazy" decoding="async" />
+            </a>
+          </li>
+          <li class="accred-card">
+            <div class="accred-card__logo"><img src="assets/logo-arc.jpg" alt="ARC Accredited Agency" width="200" height="57" loading="lazy" decoding="async" /></div>
+            <a class="accred-card__cert" href="assets/cert-arc.jpg" target="_blank" rel="noopener">
+              <img src="assets/cert-arc.jpg" alt="ARC Specialist Certification, Olga Bogatyreva" data-i18n-alt="alt-arc" width="1100" height="800" loading="lazy" decoding="async" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
 
- <footer>
-  <p>
-    &copy; 2025 TT US LLC. All rights reserved. |
-    <a href="privacy-policy.html">Privacy Policy</a>
-  </p>
-</footer>
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <img src="assets/logo.jpg" alt="" class="site-footer__mark" width="36" height="36" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.svg';" />
+      <p class="site-footer__legal">
+        <span class="site-footer__part">&copy; 2025 TT US LLC.</span>
+        <span class="site-footer__part" data-i18n="footer-rights">All rights <span class="site-footer__keep">reserved. <span class="site-footer__sep" aria-hidden="true">|</span>
+        <a href="privacy-policy.html">Privacy Policy</a></span></span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Header: transparent over the hero, frosted navy once the page is scrolled.
+    // "is-past-cta": the hero's portal button has scrolled under the header, so on phones
+    // the header shows its own (smaller) portal button from then on.
+    (function () {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      var heroCta = document.querySelector('.hero__cta .btn--light');
+      function onScroll() {
+        header.classList.toggle('is-scrolled', window.scrollY > 24);
+        header.classList.toggle('is-past-cta', !heroCta || heroCta.getBoundingClientRect().bottom <= header.offsetHeight);
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+    })();
+
+    // Language switch. The English text is written in the page above; the Spanish text is here.
+    // "Español" / "English" swaps the text in place, with no page load. Elements to translate carry
+    // data-i18n="key" (their content is replaced) or data-i18n-aria="key" (their aria-label is).
+    // The choice is remembered for the next visit, and ?lang=es in the address opens the page in Spanish.
+    // (Without JavaScript the button simply opens the old Spanish page, index-es.html.)
+    (function () {
+      var ES = {
+        'skip': 'Saltar al contenido',
+        'nav': 'Secciones',
+        'nav-about': 'Sobre nosotros',
+        'nav-what': 'Qué hacemos',
+        'nav-benefits': 'Beneficios clave',
+        'nav-contact': 'Contacto',
+        'cta-header': 'Ir al portal',
+        'cta-hero': 'Ir al portal de reservas',
+        'hero-lead': 'Diseñado especialmente para profesionales del turismo, el sistema reúne contenido aéreo de múltiples proveedores y ofrece tarifas competitivas, servicios adicionales y soporte profesional 24/7.',
+        'about-title': 'Sobre nosotros',
+        'about-lead': 'TT US LLC tiene su sede en Nueva York, Estados Unidos, desde 2022. Comenzamos especializándonos en la emisión de boletos aéreos para armadores y empresas de tripulación de EE.&nbsp;UU. y la UE. En 2024 lanzamos nuestra plataforma de reservas en línea.',
+        'about-ceo': 'Mi nombre es Olga Bogatyreva y soy la CEO de TT US. Con más de 10 años de experiencia en viajes corporativos (<span class="nowrap">Turne-Trans</span>, Rusia), me trasladé a EE.&nbsp;UU. para establecer TT US a nivel <span class="nowrap">internacional —</span> ayudando a agencias y consolidadores a acceder a herramientas de emisión confiables en mercados en crecimiento.',
+        'contact-me': 'Contáctame',
+        'lbl-phone': 'Teléfono:',
+        'whatsapp-link': 'Enviar mensaje',
+        'linkedin-link': 'Ver perfil',
+        'what-title': 'Qué hacemos',
+        'what-statement': 'Nuestro sistema fue desarrollado especialmente para agentes y especialistas de viajes, con el fin de simplificar el proceso de reserva de vuelos.',
+        'what-body': 'Obtener la acreditación IATA puede ser <span class="nowrap">difícil —</span> por eso creamos una plataforma en línea intuitiva que te da acceso a contenido aéreo global sin complicaciones. El portal ofrece tarifas en vivo de las principales aerolíneas, servicios adicionales y asistencia profesional 24/7.',
+        'benefits-title': 'Beneficios clave',
+        'benefit-1': 'Plataforma centralizada para gestionar todas tus reservas aéreas',
+        'benefit-2': 'Acceso a tarifas competitivas de múltiples proveedores globales',
+        'benefit-3': 'Atención al cliente 24/7, incluidos cambios de boletos y reembolsos',
+        'benefit-4': 'Gestionamos toda la comunicación con las aerolíneas por ti',
+        'benefit-5': 'Sistema de saldo prepago para una emisión de boletos rápida e independiente',
+        'payments-title': 'Pagos &amp; Comisiones',
+        'payments-text': 'Trabajamos con un sistema de <span class="nowrap">prepago —</span> los clientes recargan su saldo para emitir boletos al instante. Actualmente aceptamos USD y EUR vía transferencia bancaria, Wise o PayPal. Muy pronto incorporaremos más opciones de pago para atenderte mejor.',
+        'support-title': 'Soporte &amp; Comunicación',
+        'support-text': 'Nuestro Help Desk está disponible 24/7. Todo el soporte se gestiona a través de la plataforma de reservas mediante formularios estructurados, lo que nos permite priorizar las solicitudes urgentes y garantizar una resolución rápida. En los casos complejos, tu Account Manager personal (KAM) se encarga directamente del seguimiento y la resolución.',
+        'contact-title': 'Formulario de contacto',
+        'contact-lead': '¡<strong>Escríbenos</strong> si te interesa sumarte y explorar el acceso en vivo a las mejores tarifas aéreas!',
+        'more-contacts': 'Más contactos',
+        'form-name': 'Tu nombre:',
+        'form-email': 'Tu email:',
+        'form-message': 'Mensaje:',
+        'form-send': 'Enviar',
+        'accred-title': 'Somos una empresa estadounidense, acreditada por IATAN y ARC',
+        'accred-code': 'Código numérico IATA/ ARC:',
+        'alt-iatan': 'Certificado de acreditación IATAN, TT US LLC',
+        'alt-arc': 'Certificación ARC Specialist, Olga Bogatyreva',
+        'footer-rights': 'Todos los derechos <span class="site-footer__keep">reservados. <span class="site-footer__sep" aria-hidden="true">|</span> <a href="privacy-policy.html">Política de privacidad</a></span>'
+      };
+
+      var textEls = document.querySelectorAll('[data-i18n]');
+      var ariaEls = document.querySelectorAll('[data-i18n-aria]');
+      var altEls = document.querySelectorAll('[data-i18n-alt]');
+      var switches = document.querySelectorAll('[data-lang-switch]');
+      var EN = {};
+      textEls.forEach(function (el) { EN[el.getAttribute('data-i18n')] = el.innerHTML; });
+      ariaEls.forEach(function (el) { EN[el.getAttribute('data-i18n-aria')] = el.getAttribute('aria-label'); });
+      altEls.forEach(function (el) { EN[el.getAttribute('data-i18n-alt')] = el.getAttribute('alt'); });
+
+      function setLang(lang, remember) {
+        var dict = lang === 'es' ? ES : EN;
+        var other = lang === 'es' ? 'en' : 'es';
+        textEls.forEach(function (el) {
+          var v = dict[el.getAttribute('data-i18n')];
+          if (v != null) el.innerHTML = v;
+        });
+        ariaEls.forEach(function (el) {
+          var v = dict[el.getAttribute('data-i18n-aria')];
+          if (v != null) el.setAttribute('aria-label', v);
+        });
+        altEls.forEach(function (el) {
+          var v = dict[el.getAttribute('data-i18n-alt')];
+          if (v != null) el.setAttribute('alt', v);
+        });
+        document.documentElement.lang = lang;
+
+        // Each switch offers the other language
+        switches.forEach(function (a) {
+          var label = a.querySelector('[data-lang-label]');
+          label.textContent = other === 'es' ? 'Español' : 'English';
+          label.setAttribute('lang', other);
+          a.querySelector('.flag use').setAttribute('href', other === 'es' ? '#flag-es' : '#flag-gb');
+          a.setAttribute('hreflang', other);
+          a.setAttribute('href', '?lang=' + other);  // used only when opened in a new tab
+        });
+
+        if (remember) {
+          try { localStorage.setItem('ttus-lang', lang); } catch (e) {}
+          try {
+            var url = new URL(location.href);
+            if (lang === 'es') url.searchParams.set('lang', 'es'); else url.searchParams.delete('lang');
+            history.replaceState(history.state, '', url);
+          } catch (e) {}
+        }
+      }
+
+      switches.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;  // new tab/window
+          e.preventDefault();
+          setLang(document.documentElement.lang === 'es' ? 'en' : 'es', true);
+        });
+      });
+
+      // Starting language: ?lang= in the address, else the visitor's last choice, else English
+      var fromUrl = /[?&]lang=(en|es)(?:&|$)/.exec(location.search);
+      var start = fromUrl ? fromUrl[1] : 'en';
+      if (!fromUrl) {
+        try { if (localStorage.getItem('ttus-lang') === 'es') start = 'es'; } catch (e) {}
+      }
+      setLang(start, !!fromUrl);
+    })();
+  </script>
 </body>
 </html>
